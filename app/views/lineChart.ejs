@@ -1,11 +1,24 @@
 
     <link rel="stylesheet" href="http://localhost:8000/css/bootstrap.min.css" />
     <script src="http://localhost:8000/js/chart.js/dist/Chart.js"></script>
+    <script src="http://localhost:8000/js/jquery-ui.min.js"></script>
+    <link rel="stylesheet" href="http://localhost:8000/js/jquery-ui.min.css"/>
+        
+    <script>
+        $(document).ready(function() {
+            $("#grafico").draggable();
+            $("#myChart").resizable();
+        });
+    </script>
     
-    <div class="col-sm-5">
-            <canvas id="myChart" width="<%= tamanho %>" height="<%= tamanho %>"></canvas>
-        </div>
-        <script>
+    <div id="grafico">
+        <canvas id="myChart">
+            <div class="ui-resizable-handle ui-resizable-s" unselectable="on"><div class="ui-resizable-handle ui-resizable-se ui-icon ui-icon-gripsmall-diagonal-se" unselectable="on" style="z-index: 1001;"></div></div>
+            <div class="ui-resizable-handle ui-resizable-se ui-icon ui-icon-gripsmall-diagonal-se" unselectable="on" style="z-index: 1001;"></div>     
+        </canvas>        
+    </div> 
+    
+    <script>
         var ctx = document.getElementById("myChart");
         var myChart = new Chart(ctx, {
             type: 'line',
@@ -40,7 +53,7 @@
                 }]
             },
             options: {
-                responsive: false,
+                responsive: true,
                 scales: {
                     yAxes: [{
                         ticks: {
@@ -50,4 +63,4 @@
                 }
             }
         });
-        </script>
+    </script>

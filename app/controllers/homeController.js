@@ -21,9 +21,9 @@ module.exports.buscar = function(req, res){
         */
 
         if(dados.tipoGrafico == 'barras'){
-            return res.render('barChart', {tamanho:dados.tamanhoGrafico, dados:resultado});
+            return res.render('barChart', {dados:resultado});
         } else if(dados.tipoGrafico == 'linhas'){
-            return res.render('lineChart', {tamanho:dados.tamanhoGrafico, dados:resultado});
+            return res.render('lineChart', {dados:resultado});
         };
 
     });    
